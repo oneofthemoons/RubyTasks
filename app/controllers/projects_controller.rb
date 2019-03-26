@@ -6,6 +6,12 @@ class ProjectsController < ApplicationController
   def index
 	@projects = Project.all
 	@project = Project.new
+
+	if params[:project_id] != nil
+		@project = Project.find(params[:project_id])
+		@project.todos.create({"text": params[:todo_text]})
+		redirect_to root_path
+	end
   end
 
   # GET /projects/1
@@ -63,10 +69,15 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
-    end
+	end
+	
+	def todo_params
+		puts params
+		params.permit(:todo_text)
+	end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title)
+      params.require(:project)
     end
 end

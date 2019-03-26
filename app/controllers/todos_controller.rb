@@ -27,7 +27,7 @@ class TodosController < ApplicationController
   def create
 	@project = Project.find(params[:project_id])
 	@todo = @project.todos.create(todo_params)
-	
+	puts "URAAAAA"
     # respond_to do |format|
 	# 	if @todo.save
 	# 		format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
@@ -49,7 +49,7 @@ class TodosController < ApplicationController
 	@project = Project.find(params[:project_id])
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Todo was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo }
       else
         format.html { render :edit }

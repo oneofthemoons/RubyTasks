@@ -6,42 +6,55 @@
 	<h2><%= project.title %></h2>
 	<ul>
 		<%= render project.todos %>
-		<h4>Новая задача</h4>
-		<%= form_with(model: [project, project.todos.build], local: true) do |form| %>
-			<p>
-			  <%= form.text_field :text %>
-			</p>
-			<p>
-			  <%= form.submit "Создать задачу" %>
-			</p>
-		<% end %>
 	</ul>
 <% end %>
 
 <p>
+<input type="button" value="+ project" id="project-btn" class="project-btn"/>
+<div id="projectDiv">
 <h2>Новый проект</h2>
-</p>
-<p>
-	<%= form_with(model: @project, local: true) do |form| %>
-		<% if @project.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-	
-			<ul>
-			<% @project.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-			<% end %>
-			</ul>
-		</div>
+<%= form_with(model: @project, local: true, id: 'project_form') do |form| %>
+	<% if @project.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+		<ul>
+		<% @project.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
 		<% end %>
-	
-		<div class="field">
+		</ul>
+	</div>
+	<% end %>
+
+	<div class="field">
 		<%= form.label "Название:" %>
 		<%= form.text_field :title %>
+	</div>
+
+	<div class="actions">
+		<%= link_to 'Добавить проект', "", :onclick => "$('#project_form').submit()" %>
+		<%= link_to 'Отмена', "", class: 'cancel-project' %>
+	</div>
+<% end %>
+</div>
+</p>
+
+<p>
+<input type="button" value="+ todo" id="todo-btn" class="todo-btn"/>
+<div id="todoDiv">
+	<h2>Новая задача</h2>
+	<%= form_with xml: @projects, local: true, id: 'todo_form' do |form| %>
+		<% project_array = @projects.all.map {|project| [project.title, project.id]} %>
+		<div class="field">
+			<%= form.text_field :todo_text %>
 		</div>
-	
+		<p>
+			<%= form.select 'project_id', options_for_select(project_array, params[:project_id]) %>
+		</p>
 		<div class="actions">
-		<%= form.submit "Создать проект" %>
+			<%= link_to 'Добавить задачу', "#", :onclick => "$('#todo_form').submit()" %>
+			<%= link_to 'Отмена', "", class: 'cancel-todo' %>
 		</div>
 	<% end %>
+</div>
 </p>
