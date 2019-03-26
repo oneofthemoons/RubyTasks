@@ -1,9 +1,0 @@
-<%= form_with(model: [@project, @project.todos.build], local: true) do |form| %>
-	<p>
-	  <%= form.label "Новая задача:" %><br>
-	  <%= form.text_field :text %>
-	</p>
-	<p>
-	  <%= form.submit "Создать задачу" %>
-	</p>
-<% end %>
