@@ -34,4 +34,8 @@ $(document).ready(function() {
 		event.preventDefault();
 		$('#todoDiv').hide();
 	});
+	$(".create-proj").click(function(event) {
+		event.preventDefault();
+		$('#project-form').submit();
+	});
 });

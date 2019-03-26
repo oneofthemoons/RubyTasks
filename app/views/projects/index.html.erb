@@ -13,7 +13,7 @@
 <input type="button" value="+ project" id="project-btn" class="project-btn"/>
 <div id="projectDiv">
 <h2>Новый проект</h2>
-<%= form_with(model: @project, local: true, id: 'project_form') do |form| %>
+<%= form_with(model: @project, local: true, id: 'project-form') do |form| %>
 	<% if @project.errors.any? %>
 	<div id="error_explanation">
 		<h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -32,7 +32,7 @@
 	</div>
 
 	<div class="actions">
-		<%= link_to 'Добавить проект', "", :onclick => "$('#project_form').submit()" %>
+		<%= link_to 'Добавить проект', "", class: 'create-proj' %>
 		<%= link_to 'Отмена', "", class: 'cancel-project' %>
 	</div>
 <% end %>
