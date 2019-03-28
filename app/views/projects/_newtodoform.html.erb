@@ -1,0 +1,14 @@
+<h2>Новая задача</h2>
+<%= form_with xml: @projects, local: true, id: 'todo_form' do |form| %>
+	<% project_array = @projects.all.map {|project| [project.title, project.id]} %>
+	<div class="field">
+		<%= form.text_field :todo_text %>
+	</div>
+	<p>
+		<%= form.select 'project_id', options_for_select(project_array, params[:project_id]) %>
+	</p>
+	<div class="actions">
+		<%= link_to 'Добавить задачу', "#", :onclick => "$('#todo_form').submit()" %>
+		<%= link_to 'Отмена', "", class: 'cancel-todo' %>
+	</div>
+<% end %>

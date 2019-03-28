@@ -1,0 +1,24 @@
+<h2>Новый проект</h2>
+<%= form_with(model: @project, local: true, id: 'project-form') do |form| %>
+	<% if @project.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+		<ul>
+		<% @project.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<div class="field">
+		<%= form.label "Название:" %>
+		<%= form.text_field :title %>
+	</div>
+
+	<div class="actions">
+		<%= link_to 'Добавить проект', "", class: 'create-proj' %>
+		<%= link_to 'Отмена', "", class: 'cancel-project' %>
+	</div>
+<% end %>

@@ -21,18 +21,22 @@ $(document).ready(function() {
 	$(".todo-btn").click(function(event) {
 		event.preventDefault();
 		$('#todoDiv').show();
+		$('#todoBtnDiv').hide();
 	});
 	$(".project-btn").click(function(event) {
 		event.preventDefault();
 		$('#projectDiv').show();
+		$('#projectBtnDiv').hide();
 	});
 	$(".cancel-project").click(function(event) {
 		event.preventDefault();
 		$('#projectDiv').hide();
+		$('#projectBtnDiv').show();
 	});
 	$(".cancel-todo").click(function(event) {
 		event.preventDefault();
 		$('#todoDiv').hide();
+		$('#todoBtnDiv').show();
 	});
 	$(".create-proj").click(function(event) {
 		event.preventDefault();

@@ -1,0 +1,7 @@
+<h1>Задачи</h1>
+<% @projects.each do |project| %>
+	<h2><%= project.title %></h2>
+	<ul>
+		<%= render project.todos %>
+	</ul>
+<% end %>
