@@ -29,7 +29,6 @@ class ProjectsController < ApplicationController
   private
 	
 	def todo_params
-		puts params
 		params.permit(:todo_text)
 	end
 	

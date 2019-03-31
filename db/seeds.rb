@@ -6,9 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 seed_file = Rails.root.join('db', 'seeds', 'seeds.yml')
-config = YAML::load_file(seed_file)
-
-todos1 = Todo.create([{text: 'Купить молоко', isCompleted: false}, {text: 'Заменить масло в двигателе до 23 апреля', isCompleted: false}, {text: 'Отправить письмо бабушке', isCompleted: true}, {text: 'Заплатить за квартиру', isCompleted:false}, {text: 'Забрать обувь из ремонта', isCompleted:false}])
-todos2 = Todo.create([{text: 'Позвонить заказчику', isCompleted: true}, {text: 'Отправить документы', isCompleted: true}, {text: 'Заполнить отчет', isCompleted:false}])
-todos3 = Todo.create([{text: 'Позвонить другу', isCompleted: false}, {text: 'Подготовиться к поездке', isCompleted:false}])
-Project.create([{title: 'Семья', todos: todos1}, {title: 'Работа', todos: todos2}, {title: 'Прочее', todos: todos3}])
+config = HashWithIndifferentAccess.new(YAML.load(File.read(File.expand_path(seed_file, __FILE__))))
+for p in config[:projects]
+	@project = Project.new
+	@project.title = p[:title]
+	@project.save
+	for t in p[:todos]
+		@project.todos.create(t)
+	end
+end
