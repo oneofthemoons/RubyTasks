@@ -17,14 +17,14 @@
 
 @font-face {
 	font-family: 'Truefont';
-	src:font-url('truefont.ttf') format('truetype');
+	src:url('truefont.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: 'RobotoMono';
-	src:font-url('RobotoMono-Light.ttf') format('truetype');
+	src:url('RobotoMono-Light.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
