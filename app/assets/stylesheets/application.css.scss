@@ -16,7 +16,7 @@
  *= require select2
  */
 
-@font-face {
+ @font-face {
 	font-family: 'Truefont';
 	src:font-url('truefont.ttf') format('truetype');
 	font-weight: normal;
@@ -127,10 +127,7 @@ hr {
 	vertical-align: middle;
 }
 
-
 #TodoTextDiv {
-	font-family: 'RobotoMono';
-	font-size: 16px;
 	display: inline-block;
 	margin-left: 1em;
 	white-space: normal;
@@ -239,6 +236,6 @@ hr {
 	z-index: 4;
  }
 
- .strikeClass {
+.strikeClass {
 	 text-decoration: line-through;
  }
