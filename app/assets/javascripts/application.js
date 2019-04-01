@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require activestorage
 //= require_tree
+//= require 'icheck'
 
 $(document).ready(function() {
 	$('#todoDiv').hide();
@@ -43,3 +44,22 @@ $(document).ready(function() {
 		$('#project-form').submit();
 	});
 });
+
+function icheck(){
+	if($(".icheck-me").length > 0){
+	  $(".icheck-me").each(function(){
+		var $el = $(this);
+		var skin = ($el.attr('data-skin') !== undefined) ? "_" + $el.attr('data-skin') : "",
+		color = ($el.attr('data-color') !== undefined) ? "-" + $el.attr('data-color') : "";
+		var opt = {
+		  checkboxClass: 'icheckbox' + skin + color,
+		  radioClass: 'iradio' + skin + color,
+		}
+		$el.iCheck(opt);
+	  });
+	}
+}
+  
+$(function(){
+	icheck();
+})

@@ -12,4 +12,125 @@
  *
  *= require_tree .
  *= require_self
+ *= require icheck/square/blue
  */
+
+@font-face {
+	font-family: 'Truefont';
+	src:
+		url('truefont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'RobotoMono';
+	src:
+		url('RobotoMono-Light.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.truefont {
+	font-family: 'RobotoMono';
+	font-size: 16px;
+}
+
+body {
+	background-color: rgb(248, 248, 248);
+}
+
+hr {
+	border: none;
+	background-color: rgb(249, 249, 249);
+	color: rgb(249, 249, 249);
+	height: 2px;
+}
+
+#AlertDiv {
+    top:0;
+    left:0;
+    width:100%;
+    height:90px;
+    color:white;
+    position: fixed;
+    text-align:center;
+	background-color: #00b0dd;
+	z-index: 9999;
+	-webkit-box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+}
+
+#AlertDiv h1 {
+    margin:auto;
+	line-height:90px;
+	vertical-align:middle;
+	display: inline-block;
+}
+
+#AlertDiv a {
+	color: white;
+	font-size: 45px;
+	position: absolute;
+	text-decoration: none;
+	cursor: default;
+	right: 35px;
+    line-height:90px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+#BoxMain {
+	position: absolute;
+	top: 90px;
+	left: 0px;
+	margin: 2em;
+}
+
+#BoxDiv {
+	-webkit-box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	margin: 1em;
+	width: 410px;
+	display: inline-block;
+	background-color: white;
+	vertical-align: top;
+}
+
+#BoxDiv h2 {
+	margin: 1em;
+	font-size: 15px;
+	color: rgb(70, 70, 75)
+}
+
+#TodoDiv {
+	margin: 1em;
+}
+
+#BoxDiv li {
+	list-style-type: none;
+	position: relative;
+	margin: 1em;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	left: -30px;
+	display: block;
+	white-space: nowrap;
+}
+
+#TodoDiv input {
+	display: inline-block;
+	margin-right: 1em;
+	position: relative;
+	vertical-align: middle;
+}
+
+#TodoTextDiv {
+	display: inline-block;
+	margin-left: 1em;
+	white-space: normal;
+	font-size: 15px;
+	vertical-align: middle;
+}

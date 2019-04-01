@@ -1,7 +1,15 @@
-<h1>Задачи</h1>
-<% @projects.each do |project| %>
-	<h2><%= project.title %></h2>
-	<ul>
-		<%= render project.todos %>
-	</ul>
-<% end %>
+<div class='truefont' id='AlertDiv'>
+	<h1>Задачи</h1>
+	<a href='google.com'>+</a>
+</div>
+<div id='BoxMain' class='truefont'>
+	<% @projects.each do |project| %>
+		<div id='BoxDiv' class='truefont'>
+			<h2><%= project.title.upcase %></h2>
+			<hr>
+			<ul>
+				<%= render project.todos %>
+			</ul>
+		</div>
+	<% end %>
+</div>
