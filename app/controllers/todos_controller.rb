@@ -8,6 +8,17 @@ class TodosController < ApplicationController
 	  redirect_to root_path
 	end
   
+	def update
+	  @project = Project.find(params[:project_id])
+	  @todo = @project.todos.find(params[:id])
+	  if @todo.isCompleted
+		@todo.isCompleted = false
+	  else
+		@todo.isCompleted = true
+	  end
+	  @todo.save
+	end
+
 	private
 	  def set_todo
 		@todo = Todo.find(params[:id])

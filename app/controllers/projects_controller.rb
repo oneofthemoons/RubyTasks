@@ -26,6 +26,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def update
+	@project = Project.find(params[:project_id])
+  end
+
   private
 	
 	def todo_params

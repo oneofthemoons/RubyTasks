@@ -1,6 +1,8 @@
 <li>
-<div id='TodoDiv'>
-	<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue">
-	<div id='TodoTextDiv' class='truefont'><%= todo.text %></div>
-</div>
+<%= form_with xml: @projects, local: true, id: 'checkBoxForm', method: :patch do |form| %>
+	<div id='TodoDiv'>
+		<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue">
+		<div id='TodoTextDiv' class='todoTextDiv' class='truefont'><%= todo.text %></div>
+	</div>
+<% end %>
 </li>

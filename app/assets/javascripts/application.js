@@ -47,11 +47,49 @@ $(document).ready(function() {
 	});
 	
 	$('input').on('ifChecked', function(event){
+		event.preventDefault();
 		$(this).parent().parent().children('#TodoTextDiv').addClass('strikeClass');
+		var todo_idx = $(this).parent().parent().parent().parent().index() + 1;
+		var project_idx = $(this).parent().parent().parent().parent().parent().parent().index() + 1;
+		$.ajax({
+			type: "PATCH",
+			url: "/projects/" + project_idx + "/todos/" + todo_idx,
+		});
 	});
 
 	$('input').on('ifUnchecked', function(event){
+		event.preventDefault();
 		$(this).parent().parent().children('#TodoTextDiv').removeClass('strikeClass');
+		var todo_idx = $(this).parent().parent().parent().parent().index() + 1;
+		var project_idx = $(this).parent().parent().parent().parent().parent().parent().index() + 1;
+		$.ajax({
+			type: "PATCH",
+			url: "/projects/" + project_idx + "/todos/" + todo_idx,
+		});
+	});
+
+	$('.todoTextDiv').on('click' ,function(event){
+		event.preventDefault();
+		if ($(this).attr('class').indexOf('strikeClass') == -1) {
+			$(this).addClass('strikeClass');
+			$(this).parent().children().children('.icheck-me').iCheck('check');
+			var todo_idx = $(this).parent().parent().parent().index() + 1;
+			var project_idx = $(this).parent().parent().parent().parent().parent().index() + 1;
+			$.ajax({
+				type: "PATCH",
+				url: "/projects/" + project_idx + "/todos/" + todo_idx,
+			});
+		}
+		else {
+			$(this).removeClass('strikeClass');
+			$(this).parent().children().children('.icheck-me').iCheck('uncheck');
+			var todo_idx = $(this).parent().parent().parent().index() + 1;
+			var project_idx = $(this).parent().parent().parent().parent().parent().index() + 1;
+			$.ajax({
+				type: "PATCH",
+				url: "/projects/" + project_idx + "/todos/" + todo_idx,
+			});
+		}
 	});
 });
 
