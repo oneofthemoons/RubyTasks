@@ -127,7 +127,10 @@ hr {
 	vertical-align: middle;
 }
 
+
 #TodoTextDiv {
+	font-family: 'RobotoMono';
+	font-size: 16px;
 	display: inline-block;
 	margin-left: 1em;
 	white-space: normal;
@@ -234,4 +237,8 @@ hr {
 	margin-left: 1.1em;
 	width: 384px;
 	z-index: 4;
+ }
+
+ .strikeClass {
+	 text-decoration: line-through;
  }
