@@ -15,14 +15,14 @@
 //= require activestorage
 //= require_tree
 //= require 'icheck'
+//= require select2
 
 $(document).ready(function() {
-	$('#todoDiv').hide();
+	$('.cn').hide();
 	$('#projectDiv').hide();
 	$(".todo-btn").click(function(event) {
 		event.preventDefault();
-		$('#todoDiv').show();
-		$('#todoBtnDiv').hide();
+		$('.cn').show();
 	});
 	$(".project-btn").click(function(event) {
 		event.preventDefault();
@@ -36,12 +36,14 @@ $(document).ready(function() {
 	});
 	$(".cancel-todo").click(function(event) {
 		event.preventDefault();
-		$('#todoDiv').hide();
-		$('#todoBtnDiv').show();
+		$('.cn').hide();
 	});
 	$(".create-proj").click(function(event) {
 		event.preventDefault();
 		$('#project-form').submit();
+	});
+	$('select').select2({
+		minimumResultsForSearch: -1
 	});
 });
 

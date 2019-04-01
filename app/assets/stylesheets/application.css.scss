@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require icheck/square/blue
+ *= require select2
  */
 
 @font-face {
@@ -132,3 +133,104 @@ hr {
 	font-size: 15px;
 	vertical-align: middle;
 }
+
+.cn {
+	display: flex;
+	position: fixed;
+	left: 0;
+	top: 0;
+	justify-content: center;
+  	width: 100%;
+ 	height: 100%;
+	background: rgba(200,200,200,0.5);
+	z-index: 3;  
+}
+
+#todoDiv {
+	-webkit-box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	box-shadow: 0px 4px 9px -7px rgba(0,0,0,0.75);
+	width: 410px;
+	background-color: white;
+	z-index: 3;
+	align-self: center;
+}
+
+#todoDiv h2 {
+	margin: 1em;
+	font-size: 15px;
+	color: rgb(70, 70, 75)
+}
+
+#todoDiv input {
+	font-family: 'RobotoMono';
+	text-align: left;
+	padding: 0 20px;
+	margin-left: 1em; 
+	width: 83%;
+	height: 40px;
+	font-size: 14px;
+}
+
+#todoActions {
+	margin-left: 0.9em;
+	margin-bottom: 1em;
+	white-space: nowrap;
+}
+
+#cancelTodo {
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	width: 187px;
+	height: 40px;
+	margin-left: 1px; 
+	background-color: gray;
+}
+
+#cancelTodo a{
+	position: relative;
+	top: 12px;
+	color: white;
+	text-decoration: none;
+	cursor: default;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#okTodo {
+	position: relative;
+	width: 187px;
+	height: 40px;
+	text-align: center;
+	display: inline-block;
+	background-color: #00b0dd;
+}
+
+#okTodo a {
+	position: relative;
+	top: 12px;
+	color: white;
+	text-decoration: none;
+	cursor: default;
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.select2-selection, .select2-selection__rendered, .select2-selection__arrow {
+	font-family: 'RobotoMono';
+	height: 40px !important;
+	span {
+		line-height: 40px !important;
+		text-align: left;
+	}
+	width: 384px;
+	margin-left: 1.1em;
+	z-index: 4;
+ }
+ 
+ .select2-selection {
+	font-family: 'RobotoMono';
+	border-radius: 0 !important;
+	margin-left: 1.1em;
+	width: 384px;
+	z-index: 4;
+ }

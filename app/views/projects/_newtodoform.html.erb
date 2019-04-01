@@ -1,14 +1,19 @@
 <h2>Новая задача</h2>
+<hr>
 <%= form_with xml: @projects, local: true, id: 'todo_form' do |form| %>
 	<% project_array = @projects.all.map {|project| [project.title, project.id]} %>
-	<div class="field">
-		<%= form.text_field :todo_text %>
+	<div class='truefont'>
+		<%= form.text_field :todo_text, placeholder: 'Название задания...'%>
 	</div>
 	<p>
-		<%= form.select 'project_id', options_for_select(project_array, params[:project_id]) %>
+		<%= form.select 'project_id', options_for_select(project_array, params[:project_id]), placeholder: 'Категория' %>
 	</p>
-	<div class="actions">
-		<%= link_to 'Добавить задачу', "#", :onclick => "$('#todo_form').submit()" %>
-		<%= link_to 'Отмена', "", class: 'cancel-todo' %>
+	<div id='todoActions' class='truefont'>
+		<div id='cancelTodo'>
+			<%= link_to 'ОТМЕНА', "#", class: 'cancel-todo' %>
+		</div>
+		<div id='okTodo'>
+			<%= link_to 'ОК', "#", :onclick => "$('#todo_form').submit()", class: 'ok-todo' %>
+		</div>
 	</div>
 <% end %>
