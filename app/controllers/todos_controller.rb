@@ -10,7 +10,7 @@ class TodosController < ApplicationController
   
 	def update
 	  @project = Project.find(params[:project_id])
-	  @todo = @project.todos.find(params[:id])
+	  @todo = @project.todos[params[:id].to_i - 1]
 	  if @todo.isCompleted
 		@todo.isCompleted = false
 	  else

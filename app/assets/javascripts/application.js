@@ -77,7 +77,8 @@ $(document).ready(function() {
 			var project_idx = $(this).parent().parent().parent().parent().parent().index() + 1;
 			$.ajax({
 				type: "PATCH",
-				url: "/projects/" + project_idx + "/todos/" + todo_idx,
+				url: "/projects/" + 1 + "/todos/" + 1,
+				data: {"project_id":project_idx, "id":todo_idx}
 			});
 		}
 		else {

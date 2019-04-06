@@ -1,8 +1,13 @@
 <li>
-<%= form_with xml: @projects, local: true, id: 'checkBoxForm', method: :patch do |form| %>
+<%= form_with xml: @projects, local: true, id: 'checkBoxForm' do |form| %>
 	<div id='TodoDiv'>
-		<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue">
-		<div id='TodoTextDiv' class='todoTextDiv' class='truefont'><%= todo.text %></div>
+		<% if todo.isCompleted == true %>
+			<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue" checked>
+			<div id='TodoTextDiv' class='todoTextDiv strikeClass' ><%= todo.text %></div>
+		<% else %>
+			<input type="checkbox" class='icheck-me' data-skin="square" data-color="blue">
+			<div id='TodoTextDiv' class='todoTextDiv'><%= todo.text %></div>
+		<% end %>
 	</div>
 <% end %>
 </li>
