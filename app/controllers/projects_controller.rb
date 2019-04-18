@@ -8,7 +8,12 @@ class ProjectsController < ApplicationController
 
 	if params[:project_id] != nil
 		@project = Project.find(params[:project_id])
-		@project.todos.create({"text": params[:todo_text]})
+    @project.todos.create({"text": params[:todo_text], "isCompleted": false})
+    for todo in @project.todos
+      if todo.isCompleted != true
+        todo.isCompleted = false
+      end
+    end
 		redirect_to root_path
 	end
   end
