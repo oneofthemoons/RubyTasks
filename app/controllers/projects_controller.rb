@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   def index
 	@projects = Project.all
